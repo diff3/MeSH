@@ -1,0 +1,9 @@
+## Interface: 11200
+## Title: MeSH v0.1
+## Notes: Healer addon
+## Author: Entropy
+## SavedVariablesPerCharacter: MeSH
+
+Variables.lua
+Localization.lua
+MeSH.lua

@@ -1,0 +1,8 @@
+<Bindings>
+	<Binding name="Open/Hide" runOnUp="true" header="MESH">
+
+	</Binding>
+	<Binding name="MESHBUTTON1" runonUp="true">
+	<!--	if(keystate=="down") then local button = getglobal("ghostButton1"); UseAction(button:GetID(), 0, onSelf); end -->
+	</Binding>
+</Bindings>

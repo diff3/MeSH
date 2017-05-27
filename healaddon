@@ -1,0 +1,203 @@
+HealProgram
+-----------
+
+Mål:
+
+
+Skapa en liten addon för att kunna till en början Heala partyn.
+
+- Första steget få alla världen att fungera
+- Andra steget skapa en addon för target
+- Tredje steget skapa en addon för party
+- Sista steget skapa en addon för raid
+
+- binda ett antal knappar till musen, påverka med shift, control och alt
+- skall kunna heala, ta bort curses för präster, lägga buffs
+
+
+- skall kunna se om disconect, dead, mind-control, liv, mana
+
+
+
+
+
+
+FocusUnit("unit")
+name, server = GetUnitName("unit", showServerName)
+SpellCanTargetUnit("unit")
+
+CheckInteractDistance("unit",distIndex)
+FollowUnit("unit") - Follow an ally with the specified UnitID
+PROTECTED FocusUnit("unit") - Sets your unit for focus. (protected 2.0)
+PROTECTED ClearFocus() - Removes any focus you may have set.
+UI GetUnitName("unit", showServerName) - Returns a string with the unit's name and realm name if applicable.
+SpellCanTargetUnit("unit") - Returns true if the spell awaiting target selection can be cast on the specified unit.
+PROTECTED SpellTargetUnit("unit") - Casts the spell awaiting target selection on the specified unit.
+PROTECTED TargetUnit("unit") - Selects the specified unit as the current target. (protected 2.0)
+UnitAffectingCombat("unit") - Determine if the unit is in combat or has aggro. returns nil if "false" and 1 if "true".
+UnitArmor("unit") - Returns the armor statistics relevant to the specified unit.
+UnitAura("unit", index [, filter]) - Returns info about buffs and debuffs of a unit.
+UnitBuff("unit", index [,raidFilter]) - Retrieves info about a buff of a certain unit. (updated 2.0)
+UnitClass("unit") - Returns the class name of the specified unit (e.g., "Warrior" or "Shaman").
+UnitDamage("unit") - Returns the damage statistics relevant to the specified unit.
+UnitDebuff("unit", index [,raidFilter]) - Retrieves info about a debuff of a certain unit. (updated 2.0)
+UnitDefense("unit") - Returns the base defense skill of the specified unit.
+UnitExists("unit") - Returns 1 if the specified unit exists, nil otherwise.
+UnitHealth("unit") - Returns the current health, in points, of the specified unit.
+UnitHealthMax("unit") - Returns the maximum health, in points, of the specified unit.
+UnitInParty("unit") - Returns true if the unit is a member of your party.
+UnitInRaid("unit") - Returns the unit index if the unit is in your raid/battlegroud, nil otherwise.
+UnitInBattleground("unit") - Returns the unit index if the unit is in your battleground, nil otherwise.
+UnitIsInMyGuild("unit") - Returns whether the specified unit is in the same guild as the player's character.
+UnitInRange("unit") - Returns true if the unit (party or raid only) is in range of a typical spell such as flash heal. (added 2.4))
+UnitIsAFK("unit") - Only works for friendly units.
+UnitIsCharmed("unit") - Returns true if the specified unit is charmed, false otherwise.
+UnitIsConnected("unit") - Returns 1 if the specified unit is connected or npc, nil if offline or not a valid unit.
+UnitIsCorpse("unit") - Returns true if the specified unit is a corpse, false otherwise.
+UnitIsDead("unit") - Returns true if the specified unit is dead, nil otherwise.
+UnitIsDeadOrGhost("unit") - Returns true if the specified unit is dead or a ghost, nil otherwise.
+UnitIsDND("unit") - Only works for friendly units.
+UnitIsEnemy("unit", "otherUnit") - Returns true if the specified units are enemies, false otherwise.
+UnitIsFriend("unit", "otherUnit") - Returns true if the specified units are friends (PC of same faction or friendly NPC), false otherwise.
+UnitIsGhost("unit") - Returns true if the specified unit is a ghost, false otherwise.
+UnitIsPVP("unit") - Returns true if the specified unit is flagged for PVP, false otherwise.
+UnitIsPVPFreeForAll("unit") - Returns true if the specified unit is flagged for free-for-all PVP, false otherwise.
+UnitIsPVPSanctuary("unit") - Returns whether the unit is in a PvP sanctuary, and therefore cannot be attacked by other players.
+UnitIsPlayer("unit") - Returns true if the specified unit is a player character, false otherwise.
+UnitIsPossessed("unit") - Returns whether the specified unit is currently under control of another (i.e. "pet" when casting Mind Control).
+UnitIsSameServer("unit", "otherUnit") - Returns whether the specified units are from the same server.
+UnitIsTapped("unit") - Returns true if the specified unit is tapped, false otherwise.
+UnitIsTappedByPlayer("unit") - Returns true if the specified unit is tapped by the player himself, otherwise false.
+UnitIsTappedByAllThreatList("unit") - Returns whether the specified unit is a community monster, i.e. whether all players engaged in combat with it will receive kill (quest) credit.
+UnitIsTrivial("unit") - Returns true if the specified unit is trivial (Trivial means the unit is "grey" to the player. false otherwise.
+UnitIsUnit("unit", "otherUnit") - Determine if two units are the same unit.
+UnitIsVisible("unit") - 1 if visible, nil if not
+UnitLevel("unit") - Returns the level of a unit.
+UnitMana("unit") - Returns the current mana (or energy,rage,etc), in points, of the specified unit. (replaced by 'UnitPower' 3.0.2)
+UnitManaMax("unit") - Returns the maximum mana (or energy,rage,etc), in points, of the specified unit. (replaced by 'UnitPowerMax' 3.0.2)
+UnitName("unit") - Returns the name (and realm name) of a unit.
+UnitOnTaxi("unit") - Returns 1 if unit is on a taxi.
+UnitPlayerControlled("unit") - Returns true if the specified unit is controlled by a player, false otherwise.
+UnitPlayerOrPetInParty("unit") - Returns 1 if the specified unit/pet is a member of the player's party, nil otherwise (returns nil for "player" and "pet") (added 1.12)
+UnitPlayerOrPetInRaid("unit") - Returns 1 if the specified unit/pet is a member of the player's raid, nil otherwise (returns nil for "player" and "pet") (added 1.12)
+UnitPVPName("unit") - Returns unit's name with PvP rank prefix (e.g., "Corporal Allianceguy").
+UnitPVPRank("unit") - Get PvP rank information for requested unit.
+UnitPower("unit"[,type]) - Returns current power of the specified unit. (replaced 'UnitMana' 3.0.2)
+UnitPowerMax("unit"[,type]) - Returns max power of the specified unit. (replaced 'UnitManaMax' 3.0.2)
+UnitPowerType("unit") - Returns a number corresponding to the power type (e.g., mana, rage or energy) of the specified unit.
+UnitRace("unit") - Returns the race name of the specified unit (e.g., "Human" or "Troll").
+UnitRangedAttack("unit") - Returns the ranged attack number of the unit.
+UnitRangedAttackPower("unit") - Returns the ranged attack power of the unit.
+UnitRangedDamage("unit") - Returns the ranged attack speed and damage of the unit.
+UnitReaction("unit", "otherUnit") - Returns a number corresponding to the reaction (aggressive, neutral or friendly) of the first unit towards the second unit.
+UnitResistance("unit", "resistanceIndex") - Returns the resistance statistics relevant to the specified unit and resistance type.
+UnitSelectionColor(UnitId) - Returns RGBA values for the color of a unit's name.
+UnitSex("unit") - Returns a code indicating the gender of the specified unit, if known. (1=unknown, 2=male, 3=female) (updated 1.11)
+UnitStat("unit", statIndex) - Returns the statistics relevant to the specified unit and basic attribute (e.g., strength or intellect).
+UnitThreatSituation("unit", "mob") - Returns the specified unit's threat status on a mob. (added 3.0)
+UnitUsingVehicle("unit") - Returns whether the specified unit is currently using a vehicle (including transitioning between seats).
+GetThreatStatusColor(status) - Returns RGB values for a given UnitThreatSituation return value.
+UnitXP("unit") - Returns the number of experience points the specified unit has in their current level. (only works on your player)
+UnitXPMax("unit") - Returns the number of experience points the specified unit needs to reach their next level. (only works on your player)
+SetPortraitTexture(texture,"unit") - Paint a Texture object with the specified unit's portrait.
+SetPortraitToTexture(texture or "texture", "texturePath") - Sets the texture to be displayed from a file applying a circular opacity mask making it look round like portraits.
+
+GROUP
+AcceptGroup() - Accept the invitation to party.
+ConfirmReadyCheck(isReady) - Indicate if you are ready or not.
+ConvertToRaid() - Converts party to raid.
+DeclineGroup() - Decline the invitation to a party.
+DoReadyCheck() - Initiate a ready check.
+GetLootMethod() - Return the currently active lootMethod
+GetLootThreshold() - Return the current loot threshold (for group/master loot)
+GetMasterLootCandidate(index) - Return the name of a player who is eligible to receive loot in master mode
+GetNumGroupMembers([partyCategoryType]) - Returns the number of players in your group, including yourself [0-40]. (added 5.0.4)
+REMOVED GetNumPartyMembers() - Returns the number of players in your party, excluding yourself [0-4]. (removed 5.0.4)
+REMOVED GetNumRaidMembers() - Returns the number of players in your battleground raid group [0-40]. (removed 5.0.4)
+GetNumSubgroupMembers([partyCategoryType]) - Returns number of players in your subgroup, excluding yourself [0-4]. (added 5.0.4)
+REMOVED GetRealNumPartyMembers() - Returns the number of other players in your home non-battleground party. (removed 5.0.4)
+REMOVED GetRealNumRaidMembers() - Returns the number of players in your non-battleground raid group. (removed 5.0.4)
+GetPartyLeaderIndex() - Returns the index of the party leader [1-4] if not yourself.
+GetPartyMember(index) - Returns 1 if the party member at the given index exists, nil otherwise..
+InviteUnit("name" or "unit") - Invites the specified player to the group you are currently in (added 2.0.0)
+IsInGroup() - Determines if player is in any kind of group. (added 5.0.4)
+IsInRaid() - Determines if player is in raid type group. (added 5.0.4)
+UnitIsGroupAssistant("unit"[, partyCategoryType]) - Returns true if the unit is an assistant in your group. (added 5.0.4)
+REMOVED IsRaidOfficer() - Returns a value based on whether the player is a raid officer, assistant(?). (removed 5.0.4)
+REMOVED UnitIsRaidOfficer("unit") - Returns whether the specified unit is an officer in your raid. (removed 5.0.4)
+UnitIsGroupLeader("unit"[, partyCategoryType]) - Returns true if the unit is the leader of its group. (added 5.0.4)
+REMOVED IsRaidLeader() - Returns a value based on whether the player is a raid leader. (removed 5.0.4)
+REMOVED IsPartyLeader() - Returns true if the player is the party leader. (removed 5.0.4)
+REMOVED UnitIsPartyLeader("unit") - Returns true if the unit is the leader of its party. (removed 5.0.4)
+LeaveParty() - Quit the party, often useful to troubleshoot "phantom party" bugs which may list you in a party when you are not.
+PromoteToLeader("unit") - Promote a unit to party leader.
+SetLootMethod("lootMethod"[, "masterPlayer" or threshold]) - Set the current loot method
+SetLootThreshold(itemQuality) - Set the threshold for group/master loot
+HW UninviteUnit("name" [, "reason"]) - Kick a unit from the party if player is group leader, or initiate a kick vote in an LFD group.
+UnitInParty("unit") - Returns true if the unit is a member of your party.
+
+RAID
+ClearRaidMarker() - Removes all current active raid markers (flares). (added 4.0.1)
+ConvertToRaid() - Converts party to raid.
+ConvertToParty() - Converts raid to party.
+DemoteAssistant("unit") - Demotes player from assistant status. Requires raid leadership.
+GetAllowLowLevelRaid() - Returns whether joining low-level raids is enabled for the current character.
+GetPartyAssignment("assignment") - Returns unitID of unit assigned to given role.
+GetPartyAssignment("assignment", "unit") - Returns a value based on whether the unit is assigned to given role
+GetRaidRosterInfo(raidIndex) - Returns information about the members of your raid .
+GetRaidRosterSelection
+GetRaidTargetIndex("unit") - Get the raid target index assigned to a unit.
+GetReadyCheckStatus("unit") - Returns a raid member's response to the current LFG check.
+InitiateRolePoll() - Initiates a role check.
+PROTECTED PlaceRaidMarker(index) - Brings up a target selection circle to place a raid marker (flare). Valid indexes 1-5. (added 4.0.1)
+PromoteToAssistant("unit") - Promotes player to assistant status. Requires raid leadership.
+RequestRaidInfo() - Returns information about which instances you are saved to.
+PROTECTED SetPartyAssignment("assignment", player) (added 2.3.3)
+SetAllowLowLevelRaid(allowed) - Controls whether the current character can join low-level raids.
+SetRaidRosterSelection(index)
+SetRaidSubgroup(index, subgroup) - Move a raid member from his current subgroup into a different, non-full subgroup.
+PROTECTED SwapRaidSubgroup(index1, index2) - Swaps raid members into different groups.
+SetRaidTarget("unit", index) - Set the raid target index for a unit.
+UnitInRaid("unit") - Returns raidIndex if unit is in your raid, nil if not.
+
+CASTSPELL
+
+PROTECTED CastShapeshiftForm(index)
+PROTECTED CastSpell(spellID, "bookType") - Cast the specified spell by ID. spellbookTab is "spell" or "pet". As of patch 2.0, this function has been restricted to Blizzard signed UI mods. Note: You can still use this function to open Craft windows and activate Lock Picking. (protected 2.0)
+PROTECTED CastSpellByName("name"[, onSelf]) - Cast the specified spell by display name. As of patch 2.0, this function has been restricted to Blizzard signed UI mods. Note: You can still use this function to open Craft windows and activate Lock Picking. (protected 2.0)
+GetMultiCastTotemSpells(totemslot) - Returns a list of spellIDs that are applicable for the specified totem slot (1-4) (added 3.2)
+GetNumShapeshiftForms()
+GetNumSpellTabs() - Returns the total number of tabs in the user's spellbook.
+GetQuestLogRewardSpell
+GetRewardSpell
+GetShapeshiftForm(unknown) - returns zero-based index of current form/stance
+GetShapeshiftFormCooldown(index)
+GetShapeshiftFormInfo(index) - Retrieves information about an available ShapeshiftForm or Stance.
+GetSpellAutocast("spellName" | spellId, bookType) - Check whether the specified spell autocasts or not.
+GetSpellBookItemInfo(spellID, "bookType") - Returns the spell's type and spellID for a spell in the player's spellbook.
+GetSpellBookItemName(spellID, "bookType") - Returns the spell name and spell rank for a spell in the player's spellbook.
+GetSpellCooldown(spellName | spellID, "bookType") - Retrieves data on the cooldown of a specific spell.
+GetSpellDescription(spellID) - Retrieves the description text of a specific spell (enhanced tooltip text).
+GetSpellInfo (spellId | spellName | spellLink) - Returns the spell's info, including name, cost, icon, cast time, and range.
+GetSpellLink (spellName, spellRank) - Returns the spell's link. (added 2.4)
+GetSpellTabInfo(spellbookTabNum) - Returns information about the specified spellbook tab.
+GetSpellTexture(spellName | spellID, "bookType") - Returns the texture used for the spell's icon.
+GetTotemInfo(slot) - Returns information about a totem.
+GetSpellPowerCost(spellID) - Returns information about spell's resource cost (mana/focus/etc.), in the form of tables describing each resource.
+IsAttackSpell(spell) - Returns 1 if the spell is the "Attack" spell.
+IsAutoRepeatSpell(spell)
+IsPassiveSpell(spellID, "bookType") - Returns whether the icon in your spellbook is a Passive ability. Formerly IsSpellPassive(spell).
+IsSpellInRange("spellName", [unit]) - Is nil for no valid target, 0 for out of range, 1 for in range.
+IsUsableSpell(spell)
+PickupSpell("spellName" | spellID, "bookType") - Loads an action button onto the cursor to be dropped into a quickbar slot.
+UI QueryCastSequence("sequence") - Returns index, item, spell for the spell/item that will be used next if the cast sequence is executed.
+PROTECTED SetMultiCastSpell(actionID,spellID) - Assigns a spellID to a multicast (totem bar) actionID (added 3.2)
+SpellCanTargetUnit("unit") - Returns true if the spell awaiting target selection can be cast on the specified unit.
+SpellHasRange(spell) - Returns true if the specified spell has a ranged effect (i.e. requires a target).
+SpellIsTargeting() - Returns true if a spell has been cast and is awaiting target selection.
+PROTECTED SpellStopCasting() - Stops the current spellcast.
+PROTECTED SpellStopTargeting() - Cancels the spell awaiting target selection.
+PROTECTED SpellTargetUnit("unit") - Casts the spell awaiting target selection on the specified unit.
+PROTECTED ToggleSpellAutocast("spellName" | spellId, bookType) - Toggles whether the specified spell should autocast or not.
+UnitCastingInfo("unit") - Returns spellName, nameSubtext, text, texture, startTime, endTime, isTradeSkill, castID, interrupt .
+UnitChannelInfo("unit") - Returns spellName, nameSubtext, text, texture, startTime, endTime, isTradeSkill, interrupt .
